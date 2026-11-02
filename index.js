@@ -46,3 +46,14 @@ const Komik = sequelize.define('Komik', {
 });
 
 // ==================== ROUTE CRUD ====================
+
+// 1. CREATE (POST)
+app.post('/api/komik', async (req, res) => {
+  try {
+    const { title, description, author } = req.body;
+    const komikBaru = await Komik.create({ title, description, author });
+    res.status(201).json({ message: 'Komik berhasil ditambahkan', data: komikBaru });
+  } catch (error) {
+    res.status(500).json({ message: 'Gagal menambahkan komik', error: error.message });
+  }
+});
