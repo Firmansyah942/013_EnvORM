@@ -1,0 +1,15 @@
+# Dependensi
+node_modules/
+
+# Environment Variables (Penting agar password dan secret key aman tidak ter-upload)
+.env
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS specific files
+.DS_Store
+Thumbs.db
