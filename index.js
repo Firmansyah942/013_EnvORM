@@ -105,3 +105,18 @@ app.delete('/api/komik/:id', async (req, res) => {
     res.status(500).json({ message: 'Gagal menghapus komik', error: error.message });
   }
 });
+
+// ==================== KONEKSI DATABASE & SERVER ====================
+sequelize.authenticate()
+  .then(() => {
+    console.log('Koneksi database PostgreSQL berhasil.');
+    return sequelize.sync({ alter: true });
+  })
+  .then(() => {
+    app.listen(PORT, () => {
+      console.log(`Server berjalan di http://localhost:${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error('Gagal terhubung ke database:', err);
+  });
