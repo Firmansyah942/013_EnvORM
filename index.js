@@ -57,3 +57,13 @@ app.post('/api/komik', async (req, res) => {
     res.status(500).json({ message: 'Gagal menambahkan komik', error: error.message });
   }
 });
+
+// 2. READ ALL (GET)
+app.get('/api/komik', async (req, res) => {
+  try {
+    const daftarKomik = await Komik.findAll();
+    res.status(200).json({ message: 'Berhasil mengambil data komik', data: daftarKomik });
+  } catch (error) {
+    res.status(500).json({ message: 'Gagal mengambil data komik', error: error.message });
+  }
+});
