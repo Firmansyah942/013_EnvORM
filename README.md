@@ -8,3 +8,4 @@
 <img width="1452" height="1075" alt="image" src="https://github.com/user-attachments/assets/ecf29c6b-0463-4df4-98e7-37ab87ba04af" />
 
 
+<img width="1477" height="1065" alt="Cuplikan layar 2026-11-02 153941" src="https://github.com/user-attachments/assets/8bdbb4e0-ad2b-4a0e-8b58-8b507caca325" />
