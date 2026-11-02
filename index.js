@@ -67,3 +67,14 @@ app.get('/api/komik', async (req, res) => {
     res.status(500).json({ message: 'Gagal mengambil data komik', error: error.message });
   }
 });
+
+// 2. READ BY ID (GET)
+app.get('/api/komik/:id', async (req, res) => {
+  try {
+    const komik = await Komik.findByPk(req.params.id);
+    if (!komik) return res.status(404).json({ message: 'Komik tidak ditemukan' });
+    res.status(200).json({ message: 'Berhasil mengambil data komik', data: komik });
+  } catch (error) {
+    res.status(500).json({ message: 'Gagal mengambil data komik', error: error.message });
+  }
+});
