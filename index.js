@@ -92,3 +92,16 @@ app.put('/api/komik/:id', async (req, res) => {
     res.status(500).json({ message: 'Gagal memperbarui komik', error: error.message });
   }
 });
+
+// 4. DELETE (DELETE)
+app.delete('/api/komik/:id', async (req, res) => {
+  try {
+    const komik = await Komik.findByPk(req.params.id);
+    if (!komik) return res.status(404).json({ message: 'Komik tidak ditemukan' });
+
+    await komik.destroy();
+    res.status(200).json({ message: 'Komik berhasil dihapus' });
+  } catch (error) {
+    res.status(500).json({ message: 'Gagal menghapus komik', error: error.message });
+  }
+});
